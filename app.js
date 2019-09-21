@@ -30,6 +30,8 @@ function displayData(result) {
     'src',
     `http://api.openweathermap.org/img/w/${result.weather[0].icon}.png`
   );
-  document.getElementById('temp').textContent = result.main.temp + 'C';
+  document.getElementById('temp').textContent = Math.floor(result.main.temp) + ' C';
   document.getElementById('desc').textContent = result.weather[0].description;
+  document.querySelector('.header__location--city').textContent = result.sys.name;
+  document.querySelector('.header__location--country').textContent = result.name;
 }

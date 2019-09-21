@@ -6,69 +6,70 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-}
-
-.weather-box {
-  width: 100%;
-  height: 100%;
-
+body {
+  width: 100vw;
+  height: 100vh;
 }
 
 header {
+  text-align: center;
+  background-image: -webkit-linear-gradient(bottom, #5fd6d6, #a1e6e6);
+
   display: flex;
-  padding: 7rem 0 0 10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header__img {
+  width: 8rem;
+}
+
+.header__img--desc {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.header__location {
+  display: flex;
+}
+
+.header__location--city,
+.header__location--country {
   filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
-}
-
-.location {
-  display: flex;
-}
-
-h2 {
+  color: #fff;
   font-size: 5rem;
 }
 
-h3 {
-  font-size: 3rem;
-}
-
-h2,
-h3 {
-  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
-  color: #fff;
-}
-
-.timezone {
-  font-size: 1.5rem;
+.header__timezone {
+  font-size: 2rem;
   margin-top: 1rem;
 }
 
-img {
-  margin-left: auto;
-  width: 5rem;
+.temp__section {
+  background-image: linear-gradient(to top left, #ddf730, #f1f029);
+  text-align: center;
 }
 
-main {
+.temperature {
+  font-family: 'Roboto Slab', serif;
+  font-size: 12rem;
 }
 
-h1 {
-  font-size: 15rem;
-  position: relative;
-  /* padding: 10rem 15rem; */
-}
-
-h1::after {
+.temperature::after {
   content: '';
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   border: 3px solid;
   position: absolute;
-  top: 32%;
-  left: 24%;
+  top: 22rem;
+}
+
+.weather__details {
+  background-image: linear-gradient(to top, #74e881, #c9f671);
 }
