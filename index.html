@@ -9,32 +9,54 @@
       rel="stylesheet"
     />
     <title>Document</title>
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
-    <header>
-      <div class="header__img">
-        <img alt="weather-img" id="icon" />
-      </div>
-      <div class="header__location">
-        <h2 class="header__location--city">London,</h2>
-        <h2 class="header__location--country">GB</h2>
-      </div>
-      <h3 class="header__img--desc" id="desc">clear sky</h3>
-      <p class="header__timezone">23:30 Sep 19</p>
-    </header>
+    <div class="preload">
+      <img src="images/airplane.png" alt="airplane" class="airplane" />
+      <h3>Landing on the website.....</h3>
+      <img src="images/cloud.png" alt="cloud1" class="cloud1" />
+      <img src="images/cloud.png" alt="cloud2" class="cloud2" />
+      <img src="images/cloud.png" alt="cloud3" class="cloud3" />
+    </div>
 
-    <section class="temp__section">
-      <h1 class="temperature" id="temp">17</h1>
-    </section>
+    <div class="container">
+      <header>
+        <div class="header__img">
+          <img alt="weather-img" id="icon" class="img" />
+        </div>
+        <div class="header__location">
+          <h2 class="header__location--city"></h2>
+          <h2 class="header__location--country"></h2>
+        </div>
+        <h3 class="header__img--desc" id="desc"></h3>
+        <p class="header__timezone"></p>
+      </header>
 
-    <main class="weather__details">
-      <table>
-        <tr></tr>
-      </table>
-    </main>
+      <section class="temp__section">
+        <h1 class="temperature" id="temp"></h1>
+        <span class="degree">&#176;C</span>
+      </section>
 
-    <!-- <script src="app.js"></script> -->
+      <main class="weather__details">
+        <h3>details</h3>
+        <table>
+          <tr>
+            <td>Wind</td>
+            <td id="wind"></td>
+          </tr>
+          <tr>
+            <td>Pressure</td>
+            <td id="pressure"></td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td id="humidity"></td>
+          </tr>
+        </table>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>

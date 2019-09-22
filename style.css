@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/*******************Loading of a website**************/
+.preload {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #77b3d4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.airplane {
+  height: 20rem;
+  animation: aeroplane 1s ease infinite alternate;
+  z-index: 1;
+}
+
+@keyframes aeroplane {
+  to {
+    transform: translateY(0px);
+  }
+  from {
+    transform: translateY(50px);
+  }
+}
+
+.preload h3 {
+  position: absolute;
+  top: 75%;
+  transform: translateY(-75%);
+
+  color: #fff;
+  font-size: 3rem;
+  font-family: sans-serif;
+  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
+}
+
+.preload-finish {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cloud1,
+.cloud2,
+.cloud3 {
+  height: 10rem;
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+.cloud1 {
+  top: 25%;
+  transform: translate(100%, -25%);
+  animation: clouds 5s ease infinite;
+}
+
+.cloud2 {
+  top: 50%;
+  transform: translate(100%, -50%);
+  animation: clouds 5s ease infinite 2s;
+}
+
+.cloud3 {
+  top: 75%;
+  transform: translate(100%, -75%);
+  animation: clouds 5s ease infinite 4s;
+}
+
+@keyframes clouds {
+  from {
+    right: 0%;
+  }
+  to {
+    right: 130%;
+  }
+}
+
+/************Main App**************/
+.container {
+  width: 50%;
+  margin: 2rem auto 0 auto;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
+}
+
+header {
+  text-align: center;
+  background-image: -webkit-linear-gradient(bottom, #5fd6d6, #a1e6e6);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.img {
+  height: 8rem;
+}
+
+.header__location {
+  display: flex;
+}
+
+.header__location--city,
+.header__location--country {
+  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
+  color: #fff;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.header__img--desc {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.header__timezone {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.temp__section {
+  background-image: linear-gradient(to top left, #ddf730, #f1f029);
+  display: flex;
+  justify-content: center;
+}
+
+.temperature {
+  font-family: 'Roboto Slab', serif;
+  font-size: 8rem;
+}
+
+.degree {
+  font-family: 'Roboto Slab', serif;
+  font-size: 8rem;
+}
+
+.weather__details {
+  background-image: linear-gradient(to top, #74e881, #c9f671);
+  text-align: center;
+}
+
+.weather__details h3 {
+  padding: 2rem 0 0 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  border-bottom: 1px solid;
+  display: inline-block;
+}
+
+table {
+  padding: 2rem 0;
+  margin: auto;
+  font-size: 2rem;
+  text-align: left;
+}
+
+
+td {
+  padding: 0 2rem;
+}
