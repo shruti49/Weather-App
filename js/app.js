@@ -81,8 +81,7 @@ function changeBackground() {
     document.querySelector('.wind-img').src = 'images/wind-white.png';
     document.querySelector('.cloud-img').src = 'images/clouds-white.png';
     document.querySelector('.humidity-img').src = 'images/humidity-white.png';
-    // document.querySelector('.high').src = 'images/white-high.png';
-    // document.querySelector('.low').src = 'images/white-low.png';
+
     box.classList.remove('app__day');
   }
 }
