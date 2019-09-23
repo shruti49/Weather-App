@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="weather-icons.min.css" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -20,20 +21,24 @@
       <img src="images/cloud.png" alt="cloud3" class="cloud3" />
     </div>
 
-    <div class="app">
-      <main class="app__container">
+    <main class="app">
+      <div class="app__container">
         <!--WEATHER DETAILS SECTION-->
         <section class="section__details">
           <div class="wind-speed">
-            <img src="images/wind.svg" alt="wind-img" />
+            <img src="images/wind.svg" alt="wind-icon" class="wind-img" />
             <span class="wind-speed__value"></span>
           </div>
           <div class="cloudiness">
-            <img src="images/cloud.svg" alt="cloud-img" />
+            <img src="images/cloud.svg" alt="cloud-icon" class="cloud-img" />
             <span class="cloudiness__value"></span>
           </div>
           <div class="humidity">
-            <img src="images/humidity.svg" alt="humidity-img" />
+            <img
+              src="images/humidity.svg"
+              alt="humidity-icon"
+              class="humidity-img"
+            />
             <span class="humidity__value"></span>
           </div>
         </section>
@@ -63,13 +68,12 @@
             <h2 class="location__country--code"></h2>
           </div>
           <h3 class="weather__description"></h3>
-          <img alt="weather-icon" class="weather__icon" />
+          <i class="wi" id="weather__icon"></i>
         </section>
-      </main>
-      <!-- <header>
-        <p class="header__timezone"></p>
-      </header>
-    --></div>
+      </div>
+    </main>
+
+    <footer></footer>
 
     <script src="app.js"></script>
   </body>

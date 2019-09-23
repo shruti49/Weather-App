@@ -38,7 +38,7 @@ function displayData(result) {
   let desc = document.querySelector('.weather__description');
   let city = document.querySelector('.location__city');
   let country = document.querySelector('.location__country--code');
-  let img = document.querySelector('.weather__icon');
+  let icon = document.querySelector('#weather__icon');
 
   humidity.textContent = result.main.humidity + ' %';
   windSpeed.textContent = result.wind.speed + ' m/s';
@@ -49,22 +49,26 @@ function displayData(result) {
   desc.textContent = result.weather[0].description;
   country.textContent = ',' + ' ' + result.sys.country;
   city.textContent = result.name;
-  img.setAttribute(
-    'src',
-    `https://api.openweathermap.org/img/w/${result.weather[0].icon}.png`
-  );
 
-  let date = new Date();
-  document.querySelector('.header__timezone').textContent = date.toDateString();
+  let iconId = result.weather[0].id;
+  let iconClass = `wi-owm-${iconId}`;
+  icon.classList.add(iconClass);
+
 }
 
 function changeBackground() {
   let box = document.querySelector('.app__container');
   let currentTime = new Date().getHours();
+
   console.log(currentTime);
-  if (1 <= currentTime && currentTime < 20) {
+
+  if (14 <= currentTime && currentTime < 16) {
     box.classList.add('app__night');
     document.body.style.backgroundColor = '#5e4b7f';
+    document.querySelector('.wind-img').src = 'images/wind-white.png';
+    document.querySelector('.cloud-img').src = 'images/clouds-white.png';
+    document.querySelector('.humidity-img').src = 'images/humidity-white.png';
+    document.querySelector('#weather__icon').style.color = '#fff';
     box.classList.remove('app__day');
   } else {
     box.classList.add('app__day');
@@ -78,9 +82,9 @@ function changeTemperatureScale() {
   console.log(scale);
   console.log(scale.innerHTML);
   scale.addEventListener('click', () => {
-    if (scale.innerHTML === '&#176;C') {
+    if (scale.innerHTML === 'C') {
       console.log(scale.innerHTML);
-      scale.innerHTML = '&#176;F';
+      scale.innerHTML = 'F';
     } else {
       scale.innerHTML = '&#176;C';
     }
