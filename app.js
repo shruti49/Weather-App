@@ -1,3 +1,4 @@
+/*********WINDOW LOADER AND LOCATION USING NAVIGATOR GEOLOCATION*********/
 window.addEventListener('load', () => {
   const preloader = document.querySelector('.preload');
 
@@ -16,6 +17,7 @@ window.addEventListener('load', () => {
   }
 });
 
+/**************FECTHING DATA FROM API********************/
 async function fetchData(late, longe) {
   try {
     const response = await fetch(
@@ -28,18 +30,24 @@ async function fetchData(late, longe) {
   }
 }
 
-function displayData(result) {
-  let windSpeed = document.querySelector('.wind-speed__value');
-  let humidity = document.querySelector('.humidity__value');
-  let cloudiness = document.querySelector('.cloudiness__value');
-  let temp = document.querySelector('.temperature__value');
-  let min = document.querySelector('.min-temp');
-  let max = document.querySelector('.max-temp');
-  let desc = document.querySelector('.weather__description');
-  let city = document.querySelector('.location__city');
-  let country = document.querySelector('.location__country--code');
-  let icon = document.querySelector('#weather__icon');
+/********************INITIALIZATION***********************/
+let windSpeed = document.querySelector('.wind-speed__value');
+let humidity = document.querySelector('.humidity__value');
+let cloudiness = document.querySelector('.cloudiness__value');
+let temp = document.querySelector('.temperature__value');
+let min = document.querySelector('.min-temp');
+let max = document.querySelector('.max-temp');
+let desc = document.querySelector('.weather__description');
+let city = document.querySelector('.location__city');
+let country = document.querySelector('.location__country--code');
+let icon = document.querySelector('#weather__icon');
+let box = document.querySelector('.app__container');
+let scale = document.querySelector('.scale');
+let cel;
+let far;
 
+/***************DISPLAY THE FETCHED DATA******************/
+function displayData(result) {
   humidity.textContent = result.main.humidity + ' %';
   windSpeed.textContent = result.wind.speed + ' m/s';
   cloudiness.textContent = result.clouds.all + ' %';
@@ -53,41 +61,70 @@ function displayData(result) {
   let iconId = result.weather[0].id;
   let iconClass = `wi-owm-${iconId}`;
   icon.classList.add(iconClass);
-
+  cel = Math.floor(result.main.temp);
 }
 
+/*****************CHANGINH BACKGROUND IMAGES ACCORDING TO DAY AND NIGHT**********/
 function changeBackground() {
-  let box = document.querySelector('.app__container');
-  let currentTime = new Date().getHours();
+  let hours = new Date().getHours();
 
-  console.log(currentTime);
-
-  if (14 <= currentTime && currentTime < 16) {
-    box.classList.add('app__night');
-    document.body.style.backgroundColor = '#5e4b7f';
-    document.querySelector('.wind-img').src = 'images/wind-white.png';
-    document.querySelector('.cloud-img').src = 'images/clouds-white.png';
-    document.querySelector('.humidity-img').src = 'images/humidity-white.png';
-    document.querySelector('#weather__icon').style.color = '#fff';
-    box.classList.remove('app__day');
-  } else {
+  if (7 <= hours && hours < 19) {
     box.classList.add('app__day');
     document.body.style.backgroundColor = '#4f93a0';
     box.classList.remove('app__night');
+  } else {
+    box.classList.add('app__night');
+
+    document.body.style.backgroundColor = '#5e4b7f';
+    document.querySelector('#weather__icon').style.color = '#fff';
+
+    document.querySelector('.wind-img').src = 'images/wind-white.png';
+    document.querySelector('.cloud-img').src = 'images/clouds-white.png';
+    document.querySelector('.humidity-img').src = 'images/humidity-white.png';
+    // document.querySelector('.high').src = 'images/white-high.png';
+    // document.querySelector('.low').src = 'images/white-low.png';
+    box.classList.remove('app__day');
   }
 }
 
-function changeTemperatureScale() {
-  let scale = document.querySelector('.scale');
-  console.log(scale);
-  console.log(scale.innerHTML);
+const celsiusToFahrenheit = celsius => {
+  return ((celsius * 9) / 5 + 32).toFixed(0);
+};
+
+let fahrenheitToCelsius = fahrenheit => {
+  return (((fahrenheit - 32) * 5) / 9).toFixed(0);
+};
+
+/***************TOGGLING BETWEEEN TEMPERATURE SCALES***************/
+function changeTemperatureScale(temperature, maxTemperature, minTemperature) {
+  let deg = '&#8451;';
+
   scale.addEventListener('click', () => {
-    if (scale.innerHTML === 'C') {
-      console.log(scale.innerHTML);
-      scale.innerHTML = 'F';
-    } else {
-      scale.innerHTML = '&#176;C';
+    //IF DEGREE IS IN CELCIUS
+    if (deg === '&#8451;') {
+      //CHANGE IT TO FARENHEIT
+      deg = '&#8457;';
+
+      scale.innerHTML = deg;
+
+      temperature.textContent = celsiusToFahrenheit(cel);
+      maxTemperature.textContent = celsiusToFahrenheit(cel);
+      minTemperature.textContent = celsiusToFahrenheit(cel);
+    }
+    //IF DEGREE IS IN FARENHEIT
+    else if (deg === '&#8457;') {
+      //CHANGE IT TO CELCIUS
+      deg = '&#8451;';
+
+      scale.innerHTML = deg;
+
+      far = temperature.textContent;
+
+      temperature.textContent = fahrenheitToCelsius(far);
+      maxTemperature.textContent = fahrenheitToCelsius(far);
+      minTemperature.textContent = fahrenheitToCelsius(far);
     }
   });
 }
-changeTemperatureScale();
+
+changeTemperatureScale(temp, min, max);

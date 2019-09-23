@@ -166,9 +166,9 @@ span {
   padding-top: 2rem;
 }
 
-.wind-speed img,
-.cloudiness img,
-.humidity img {
+.wind-img,
+.cloud-img,
+.humidity-img{
   width: 4rem;
   height: 4rem;
   vertical-align: middle;
@@ -187,22 +187,27 @@ span {
 .temperature__right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .temperature__scale {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
-.temperature__scale a {
+.scale {
   text-decoration: none;
+  cursor: pointer;
 }
 
-.temperature__high {
-  padding-top: 5px;
+.high,
+.low{
+  width: 2.5rem;
+  height: 2.5rem;
+  vertical-align: middle;
 }
+
 
 .min-temp,
 .max-temp {
@@ -239,7 +244,7 @@ span {
 
 #weather__icon {
   font-size: 12rem;
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 
 @media screen and (min-width: 450px) {
@@ -249,9 +254,3 @@ span {
     border-radius: 5px;
   }
 }
-
-/*
-.header__timezone {
-  font-size: 2rem;
-  margin-top: 1rem;
-}*/
