@@ -20,42 +20,56 @@
       <img src="images/cloud.png" alt="cloud3" class="cloud3" />
     </div>
 
-    <div class="container">
-      <header>
-        <div class="header__img">
-          <img alt="weather-img" id="icon" class="img" />
-        </div>
-        <div class="header__location">
-          <h2 class="header__location--city"></h2>
-          <h2 class="header__location--country"></h2>
-        </div>
-        <h3 class="header__img--desc" id="desc"></h3>
+    <div class="app">
+      <main class="app__container">
+        <!--WEATHER DETAILS SECTION-->
+        <section class="section__details">
+          <div class="wind-speed">
+            <img src="images/wind.svg" alt="wind-img" />
+            <span class="wind-speed__value"></span>
+          </div>
+          <div class="cloudiness">
+            <img src="images/cloud.svg" alt="cloud-img" />
+            <span class="cloudiness__value"></span>
+          </div>
+          <div class="humidity">
+            <img src="images/humidity.svg" alt="humidity-img" />
+            <span class="humidity__value"></span>
+          </div>
+        </section>
+
+        <!--TEMPERATURE SECTION-->
+        <section class="section__temperature">
+          <h1 class="temperature__value">28</h1>
+          <div class="temperature__right">
+            <div class="temperature__scale">
+              <a href="#" class="scale">&#176;C</a>
+            </div>
+            <div class="temperature__high">
+              <img src="images/high.svg" alt="high-temp-img" />
+              <span class="max-temp"></span>
+            </div>
+            <div class="temperature__low">
+              <img src="images/low.svg" alt="low-temp-img" />
+              <span class="min-temp"></span>
+            </div>
+          </div>
+        </section>
+
+        <!--LOCATION SECTION-->
+        <section class="section__location">
+          <div class="location">
+            <h2 class="location__city"></h2>
+            <h2 class="location__country--code"></h2>
+          </div>
+          <h3 class="weather__description"></h3>
+          <img alt="weather-icon" class="weather__icon" />
+        </section>
+      </main>
+      <!-- <header>
         <p class="header__timezone"></p>
       </header>
-
-      <section class="temp__section">
-        <h1 class="temperature" id="temp"></h1>
-        <span class="degree">&#176;C</span>
-      </section>
-
-      <main class="weather__details">
-        <h3>details</h3>
-        <table>
-          <tr>
-            <td>Wind</td>
-            <td id="wind"></td>
-          </tr>
-          <tr>
-            <td>Pressure</td>
-            <td id="pressure"></td>
-          </tr>
-          <tr>
-            <td>Humidity</td>
-            <td id="humidity"></td>
-          </tr>
-        </table>
-      </main>
-    </div>
+    --></div>
 
     <script src="app.js"></script>
   </body>
