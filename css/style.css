@@ -127,7 +127,7 @@ span {
 .app__day {
   background-position: center;
   background-color: #4f93a0;
-  background-image: url('/images/sunny.jpg');
+  background-image: url('../images/sunny.jpg');
   background-blend-mode: luminosity;
 }
 
@@ -145,7 +145,7 @@ span {
 .app__night {
   color: #fff;
   background-color: #5e4b7f;
-  background-image: url('/images/night.jpg');
+  background-image: url('../images/night.jpg');
   background-blend-mode: soft-light;
 }
 
