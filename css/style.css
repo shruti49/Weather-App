@@ -109,8 +109,8 @@ span {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 33rem;
-  height: 60rem;
+  width: 30rem;
+  height: 55rem;
   border-radius: 5px;
 }
 
@@ -229,10 +229,10 @@ span {
 
 @media screen and (min-width: 450px) {
   .app__container {
-    width: 30rem;
-    height: 55rem;
+    width: 33rem;
+    height: 60rem;
   }
-  
+
   .app__day .temperature__scale a:hover {
     color: #17a4c7;
     transition: color 1s ease;
