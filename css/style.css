@@ -31,7 +31,7 @@ body {
 }
 
 .airplane {
-  height: 18rem;
+  height: 15rem;
   animation: aeroplane 1s ease infinite alternate;
   z-index: 1;
 }
@@ -45,16 +45,6 @@ body {
   }
 }
 
-.preload h3 {
-  position: absolute;
-  top: 75%;
-  transform: translateY(-75%);
-
-  color: #fff;
-  font-size: 2rem;
-  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
-}
-
 .preload-finish {
   opacity: 0;
   pointer-events: none;
@@ -63,7 +53,7 @@ body {
 .cloud1,
 .cloud2,
 .cloud3 {
-  height: 8rem;
+  height: 6rem;
   position: absolute;
   right: 0;
   z-index: 0;
@@ -72,19 +62,19 @@ body {
 .cloud1 {
   top: 25%;
   transform: translate(100%, -25%);
-  animation: clouds 5s ease infinite;
+  animation: clouds 3s ease infinite;
 }
 
 .cloud2 {
   top: 50%;
   transform: translate(100%, -50%);
-  animation: clouds 5s ease infinite 2s;
+  animation: clouds 3s ease infinite 2s;
 }
 
 .cloud3 {
   top: 75%;
   transform: translate(100%, -75%);
-  animation: clouds 5s ease infinite 4s;
+  animation: clouds 3s ease infinite 1.5s;
 }
 
 @keyframes clouds {
@@ -136,15 +126,6 @@ span {
   color: #000;
 }
 
-.app__day .temperature__scale a:hover {
-  color: #17a4c7;
-  transition: color 1s ease;
-}
-
-.app__day .temperature__scale a:link {
-  color: #000;
-}
-
 /****************NIGHT***********************/
 
 .app__night {
@@ -155,15 +136,6 @@ span {
 }
 
 .app__night .scale {
-  color: #fff;
-}
-
-.app__night .temperature__scale a:hover {
-  color: #824ddf;
-  transition: color 1s ease;
-}
-
-.app__night .temperature__scale a:visited {
   color: #fff;
 }
 
@@ -253,4 +225,16 @@ span {
 #weather__icon {
   font-size: 12rem;
   padding-top: 4rem;
+}
+
+@media screen and (min-width: 450px) {
+  .app__day .temperature__scale a:hover {
+    color: #17a4c7;
+    transition: color 1s ease;
+  }
+
+  .app__night .temperature__scale a:hover {
+    color: #824ddf;
+    transition: color 1s ease;
+  }
 }
