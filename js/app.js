@@ -1,65 +1,35 @@
-
-function handlePermission() {
-  navigator.permissions.query({ name: 'geolocation' }).then(function(result) {
-    if (result.state == 'granted') {
-      report(result.state);
-      geoBtn.style.display = 'none';
-    } else if (result.state == 'prompt') {
-      report(result.state);
-      geoBtn.style.display = 'none';
-      navigator.geolocation.getCurrentPosition(
-        revealPosition,
-        positionDenied,
-        geoSettings
-      );
-    } else if (result.state == 'denied') {
-      report(result.state);
-      geoBtn.style.display = 'inline';
-    }
-    result.onchange = function() {
-      report(result.state);
-    };
-  });
-}
-
-function report(state) {
-  console.log('Permission ' + state);
-}
-
-handlePermission();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*********WINDOW LOADER AND LOCATION USING NAVIGATOR GEOLOCATION*********/
 window.addEventListener('load', () => {
-  const preloader = document.querySelector('.preload');
-
-  let lat;
-  let long;
-
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      lat = position.coords.latitude;
-      long = position.coords.longitude;
-
-      preloader.classList.add('preload-finish');
-      changeBackground();
-      fetchData(lat, long);
-    });
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    alert('"Geolocation is not supported by this browser."');
   }
 });
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  fetchData(lat, long);
+  changeBackground();
+}
+
+function showError(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      alert('User denied the request for Geolocation.');
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert('Location information is unavailable.');
+      break;
+    case error.TIMEOUT:
+      alert('The request to get user location timed out.');
+      break;
+    case error.UNKNOWN_ERROR:
+      alert('An unknown error occurred.');
+      break;
+  }
+}
 
 /**************FECTHING DATA FROM API********************/
 async function fetchData(late, longe) {
@@ -68,6 +38,7 @@ async function fetchData(late, longe) {
       `https://api.openweathermap.org/data/2.5/weather?lat=${late}&lon=${longe}&&units=metric&APPID=63c527087993d3c6b61373aad19465ba`
     );
     const data = await response.json();
+    document.querySelector('.preload').classList.add('preload-finish');
     displayData(data);
   } catch (err) {
     console.error();
@@ -112,7 +83,7 @@ function displayData(result) {
 function changeBackground() {
   let hours = new Date().getHours();
 
-  if (7 <= hours && hours < 19) {
+  if (7 <= hours && hours < 18) {
     box.classList.add('app__day');
     document.body.style.backgroundColor = '#4f93a0';
     box.classList.remove('app__night');
