@@ -119,8 +119,9 @@ span {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 33rem;
+  height: 60rem;
+  border-radius: 5px;
 }
 
 /***************Day*******************/
@@ -140,6 +141,10 @@ span {
   transition: color 1s ease;
 }
 
+.app__day .temperature__scale a:link {
+  color: #000;
+}
+
 /****************NIGHT***********************/
 
 .app__night {
@@ -156,6 +161,10 @@ span {
 .app__night .temperature__scale a:hover {
   color: #824ddf;
   transition: color 1s ease;
+}
+
+.app__night .temperature__scale a:visited {
+  color: #fff;
 }
 
 /*******************DETAILS SECTION******************/
@@ -244,12 +253,4 @@ span {
 #weather__icon {
   font-size: 12rem;
   padding-top: 4rem;
-}
-
-@media screen and (min-width: 450px) {
-  .app__container {
-    width: 33rem;
-    height: 60rem;
-    border-radius: 5px;
-  }
 }
