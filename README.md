@@ -14,7 +14,7 @@ First clone the project
 https://github.com/shruti49/Weather-App.git
 ```
 
-Then install the node_modules (this installs the server and the client)
+Then install the node_modules
 
 ```shell
 yarn
