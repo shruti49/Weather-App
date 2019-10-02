@@ -1,3 +1,4 @@
+
 /*********WINDOW LOADER AND LOCATION USING NAVIGATOR GEOLOCATION*********/
 window.addEventListener('load', () => {
   if (navigator.geolocation) {
