@@ -1,0 +1,245 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  font-family: 'Roboto', serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/*******************Loading of a website**************/
+.preload {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #77b3d4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.airplane {
+  height: 15rem;
+  animation: aeroplane 1s ease infinite alternate;
+  z-index: 1;
+}
+
+@keyframes aeroplane {
+  to {
+    transform: translateY(0px);
+  }
+  from {
+    transform: translateY(50px);
+  }
+}
+
+.preload-finish {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cloud1,
+.cloud2,
+.cloud3 {
+  height: 6rem;
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+.cloud1 {
+  top: 25%;
+  transform: translate(100%, -25%);
+  animation: clouds 3s ease infinite;
+}
+
+.cloud2 {
+  top: 50%;
+  transform: translate(100%, -50%);
+  animation: clouds 3s ease infinite 2s;
+}
+
+.cloud3 {
+  top: 75%;
+  transform: translate(100%, -75%);
+  animation: clouds 3s ease infinite 1.5s;
+}
+
+@keyframes clouds {
+  from {
+    right: 0%;
+  }
+  to {
+    right: 130%;
+  }
+}
+
+/************Main App**************/
+
+span {
+  font-size: 1.5rem;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.app__container {
+  background-size: cover;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 30rem;
+  height: 55rem;
+  border-radius: 5px;
+}
+
+/***************Day*******************/
+.app__day {
+  background-position: center;
+  background-color: #4f93a0;
+  background-image: url('../images/sunny.jpg');
+  background-blend-mode: luminosity;
+}
+
+.app__day .scale {
+  color: #000;
+}
+
+/****************NIGHT***********************/
+
+.app__night {
+  color: #fff;
+  background-color: #5e4b7f;
+  background-image: url('../images/night.jpg');
+  background-blend-mode: soft-light;
+}
+
+.app__night .scale {
+  color: #fff;
+}
+
+/*******************DETAILS SECTION******************/
+.section__details {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+
+.wind-img,
+.cloud-img,
+.humidity-img {
+  width: 4rem;
+  height: 4rem;
+  vertical-align: middle;
+}
+
+/*************************TEMEPERATURE SECTION****************/
+.section__temperature {
+  display: flex;
+  justify-content: center;
+}
+
+.temperature__value {
+  font-size: 10rem;
+}
+
+.temperature__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.temperature__scale {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.scale {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.high,
+.low {
+  width: 2.5rem;
+  height: 2.5rem;
+  vertical-align: middle;
+}
+
+.min-temp,
+.max-temp {
+  vertical-align: top;
+}
+
+/*************************LOCATION SECTION******************/
+.section__location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+}
+
+.location {
+  display: flex;
+  text-align: center;
+}
+
+.location__city,
+.location__country--code {
+  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.weather__description {
+  font-size: 2rem;
+  text-transform: capitalize;
+  filter: drop-shadow(1px 0 2px rgba(0, 0, 0, 0.4));
+}
+
+#weather__icon {
+  font-size: 12rem;
+  padding-top: 4rem;
+}
+
+@media screen and (min-width: 450px) {
+  .app__container {
+    width: 33rem;
+    height: 60rem;
+  }
+
+  .app__day .temperature__scale a:hover {
+    color: #17a4c7;
+    transition: color 1s ease;
+  }
+
+  .app__night .temperature__scale a:hover {
+    color: #824ddf;
+    transition: color 1s ease;
+  }
+}
